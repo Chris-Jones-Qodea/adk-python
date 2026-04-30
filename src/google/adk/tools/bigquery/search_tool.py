@@ -15,7 +15,7 @@
 from __future__ import annotations
 
 import logging
-from typing import Any
+from typing import Any, Optional
 
 from google.api_core import exceptions as api_exceptions
 from google.auth.credentials import Credentials
@@ -42,11 +42,11 @@ def search_catalog(
     *,
     credentials: Credentials,
     settings: BigQueryToolConfig,
-    location: str | None = None,
+    location: Optional[str] = None,
     page_size: int = 10,
-    project_ids_filter: list[str] | None = None,
-    dataset_ids_filter: list[str] | None = None,
-    types_filter: list[str] | None = None,
+    project_ids_filter: Optional[list[str]] = None,
+    dataset_ids_filter: Optional[list[str]] = None,
+    types_filter: Optional[list[str]] = None,
 ) -> dict[str, Any]:
   """Finds BigQuery datasets and tables using natural language semantic search via Dataplex.
 
